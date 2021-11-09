@@ -38,7 +38,13 @@ public class MonkeyBar : MonoBehaviour
 
 		if(playerRigidbody != null)
 		{
+			if(hasAttached)
+			{
+				return;
+				ReleaseFromMonkeyBar();
+			}
 			AttachToMonkeyBarPosition(collision.transform, playerRigidbody);
+
 		}
 	}
 
