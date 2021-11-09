@@ -10,9 +10,9 @@ public class ButtonInvoker : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(Activate))
-		{
-			Invoker.Invoke();
-		}
+		//if(Input.GetKeyDown(Activate))
+		//{
+		//	Invoker.Invoke();
+		//}
 	}
 }

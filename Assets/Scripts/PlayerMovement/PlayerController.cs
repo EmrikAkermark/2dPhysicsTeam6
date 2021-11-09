@@ -1,10 +1,17 @@
 using System;
+using HelperClasses.Event_System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
+
 public class PlayerController : MonoBehaviour
 {
     // public Vector2 velocity;
+
+    public InputMaster controls;
     
     [SerializeField] private int movementAcceleration = 20;
     [SerializeField] private int jumpAcceleration = 10;
@@ -20,6 +27,8 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody2D rb;
     private float _inputHorizontal = 0f;
+    private float _inputVertical = 0f;
+
     private bool _jump = false;
     private bool _isGrounded = false;
     private bool _isMoving = false;
@@ -31,11 +40,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _inputHorizontal = Input.GetAxis("Horizontal");
         _isMoving = _inputHorizontal != 0;
         
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded) _jump = true;
-
         if (_isGrounded && _isMoving) rb.drag = dragGroundedMoving;
         else if (_isGrounded && !_isMoving) rb.drag = dragGroundedIdle;
         else if (!_isGrounded && _isMoving) rb.drag = dragInAirMoving;
@@ -74,6 +80,14 @@ public class PlayerController : MonoBehaviour
         {
             _jump = false;
             rb.AddForce(new Vector2(0f, jumpAcceleration * rb.mass), ForceMode2D.Impulse);
+            
+           // Will Fire 2 Events , Release from Monkey In Case The player was attached . 
+           // And a event of Jumping To whomever wanna listen to that later in the game .
+           var monkeyReleaseEvent = new OnPlayerMonkeyBarRelease(gameObject,"Player");
+           EventManager.SendNewEvent(monkeyReleaseEvent);
+           var playerJumpEvent = new OnPlayerJumpEvent(gameObject,"Player");
+           EventManager.SendNewEvent(playerJumpEvent);  
+            
         }
     }
 
@@ -91,4 +105,17 @@ public class PlayerController : MonoBehaviour
     {
         return (Mathf.Abs(v) - a) / (b - a);
     }
+    
+    // Input Controllers
+    public void SetMovementInput(Vector2 movInput)
+    {
+        _inputHorizontal = movInput.x;
+        _inputVertical = movInput.y;
+    }
+
+    public void Jump()
+    {
+        if (_isGrounded) _jump = true;
+    }
+    
 }

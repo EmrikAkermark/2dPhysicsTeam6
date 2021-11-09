@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using HelperClasses.Event_System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonkeyBar : MonoBehaviour
@@ -16,15 +19,23 @@ public class MonkeyBar : MonoBehaviour
 	private bool isReadyToRelease;
 
 	private Vector2 ReleaseVector, ReleaseVectorMirror;
-
-
-
+	
+	
 
 	private void Start()
 	{
 		hingeJoint = GetComponentInChildren<HingeJoint2D>();
 	}
 
+	private void OnEnable()
+	{
+		EventManager.RegisterListener<OnPlayerMonkeyBarRelease>(ReleaseFromMonkeyBar);
+	}
+	private void OnDisable()
+	{
+		EventManager.UnregisterListener<OnPlayerMonkeyBarRelease>(ReleaseFromMonkeyBar);
+	}
+	
 	private void OnValidate()
 	{
 		ReleaseVector = new Vector2 { x = Mathf.Cos(ReleaseAngle * Mathf.Deg2Rad), y = Mathf.Sin(ReleaseAngle * Mathf.Deg2Rad) };
@@ -132,8 +143,17 @@ public class MonkeyBar : MonoBehaviour
 	}
 
 
-	public void ReleaseFromMonkeyBar()
+	
+	
+	public void ReleaseFromMonkeyBar(EventInfo eventInfo = default(EventInfo))
 	{
+		// We calling Release from Player If this is True 
+		OnPlayerMonkeyBarRelease OnReleaseEvent = (OnPlayerMonkeyBarRelease)eventInfo;
+		if (OnReleaseEvent!=null)
+		{
+			if (attachedPlayer == null || OnReleaseEvent.GO != attachedPlayer.gameObject) return;
+		}
+		
 		hingeJoint.connectedBody = null;
 		attachedPlayer.up = Vector3.up;
 		attachedRigidbody.angularVelocity = 0f;
