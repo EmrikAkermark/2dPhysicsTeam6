@@ -51,6 +51,12 @@ public class MonkeyBar : MonoBehaviour
 		{
 			if(hasAttached)
 			{
+
+				Vector2 normal = (Vector2)collision.transform.position - (Vector2)transform.position;
+				Vector2 reflection = Vector2.Reflect(playerRigidbody.velocity.normalized, normal.normalized);
+
+				playerRigidbody.velocity = reflection * Math.Max(playerRigidbody.velocity.magnitude, 3f);
+
 				return;
 				ReleaseFromMonkeyBar();
 			}
