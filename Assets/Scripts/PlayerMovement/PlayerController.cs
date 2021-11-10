@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private float dragGroundedIdle = 10f;
     [SerializeField, Range(0f, 10f)] private float dragInAirMoving = .5f;
     [SerializeField, Range(0f, 10f)] private float dragInAirIdle = 1f;
+    [Space]
+    [SerializeField] private Vector2 extraGravity = new Vector2(0f, 0f);
     
     private Rigidbody2D rb;
     private float _inputHorizontal = 0f;
@@ -52,26 +54,28 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float x;
+        Vector2 force = Vector2.zero;
 
         if (_isGrounded)
         {
             // calculate horizontal force to apply based on acceleration and input values.
-            x = ((movementAcceleration * rb.mass) * _inputHorizontal);
+            force.x = ((movementAcceleration * rb.mass) * _inputHorizontal);
 
             // adjusting applied horizontal force to match max allowed horizontal velocity.
-            x *= ILerp(maxHorizontalVelocity, 0, rb.velocity.x) + .4f;
+            force.x *= ILerp(maxHorizontalVelocity, 0, rb.velocity.x) + .4f;
         }
         else
         {
             // calculate horizontal force to apply based on acceleration and input values.
-            x = ((movementAcceleration * rb.mass) * _inputHorizontal) * airSteeringModifier;
+            force.x = ((movementAcceleration * rb.mass) * _inputHorizontal) * airSteeringModifier;
             
             // adjusting applied horizontal force to match max allowed horizontal velocity.
-            x *= ILerp(maxHorizontalVelocity, 0, rb.velocity.x) + .4f;
+            force.x *= ILerp(maxHorizontalVelocity, 0, rb.velocity.x) + .4f;
         }
 
-        rb.AddForce(new Vector2(x, 0f));
+        force += extraGravity * rb.mass; // mul by mass to get correct force to apply, because gravity is an acceleration.
+        
+        rb.AddForce(force);
 
         if (_jump)
         {
@@ -90,12 +94,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _isGrounded = true;
+        if (other.CompareTag("Environment"))
+        {
+            _isGrounded = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        _isGrounded = false;
+        if (other.CompareTag("Environment"))
+        {
+            _isGrounded = false;
+        }
     }
 
     private float ILerp(float a, float b, float v)
