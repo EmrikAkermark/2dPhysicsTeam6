@@ -66,6 +66,7 @@ public class MonkeyBar : MonoBehaviour
 		isReadyToRelease = false;
 		attachedPlayer = player;
 		attachedRigidbody = rb2d;
+		attachedRigidbody.constraints = RigidbodyConstraints2D.None;
 		Vector2 vectorToPlayer = attachedPlayer.position - transform.position;
 
 		vectorToPlayer = vectorToPlayer.normalized * DistanceFromMonkeyBar;
@@ -94,6 +95,8 @@ public class MonkeyBar : MonoBehaviour
 		if (!hasAttached)
 			return;
 
+
+		CheckRotationDirection();
 		if(isReadyToRelease)
 		{
 			CheckIfRelease();
@@ -142,6 +145,20 @@ public class MonkeyBar : MonoBehaviour
 		}
 	}
 
+	private void CheckRotationDirection()
+	{
+		Vector2 vectorToPlayer = attachedPlayer.position - transform.position;
+		if (Vector2.Angle(attachedRigidbody.velocity, Vector2.Perpendicular(vectorToPlayer)) < Vector2.Angle(attachedRigidbody.velocity, Vector2.Perpendicular(-vectorToPlayer)))
+		{
+
+			isRotatingClockwise = false;
+		}
+		else
+		{
+			isRotatingClockwise = true;
+		}
+	}
+
 
 	
 	
@@ -157,6 +174,7 @@ public class MonkeyBar : MonoBehaviour
 		hingeJoint.connectedBody = null;
 		attachedPlayer.up = Vector3.up;
 		attachedRigidbody.angularVelocity = 0f;
+		attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
 		attachedPlayer = null;
 		attachedRigidbody = null;
