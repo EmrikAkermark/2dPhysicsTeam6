@@ -27,16 +27,17 @@ namespace HelperClasses.Managers
         }
 
         private void InitializeVariables(){
-            _player1 = GameObject.FindWithTag($"Player1");
-            _player2 = GameObject.FindWithTag($"Player2");
-            _environment = GameObject.FindWithTag($"Environment");
+            _player1 = GameObject.FindWithTag("Player1");
+            _player2 = GameObject.FindWithTag("Player2");
+            _environment = GameObject.FindWithTag("Environment");
             
             GameObject[] allMonkeyBars = GameObject.FindGameObjectsWithTag("MonkeyBar");
             foreach (var monkeyBar in allMonkeyBars)
             {
                 _monkeyBarsList.Add(monkeyBar.GetComponent<MonkeyBar>()); 
             }
-            GameObject cameraObject = GameObject.FindWithTag($"MainCamera");
+            
+            GameObject cameraObject = GameObject.FindWithTag("MainCamera");
             _mainCamera = cameraObject.GetComponent<Camera>();
         }
 
