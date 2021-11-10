@@ -164,7 +164,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.59, y: 7}
+  m_ConnectedAnchor: {x: 0, y: -0.62}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 8241259901488093537}
   m_Layer: 0
   m_Name: Monkeybar
-  m_TagString: Untagged
+  m_TagString: MonkeyBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8241259901488093536}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
