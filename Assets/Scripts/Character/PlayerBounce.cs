@@ -11,7 +11,7 @@ public class PlayerBounce : MonoBehaviour
 		if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
 		{
 			var otherPlayer = collision.collider.GetComponent<Rigidbody2D>();
-			var bounceForce = -collision.relativeVelocity * BounceFactor;
+			var bounceForce = -collision.relativeVelocity * otherPlayer.mass * BounceFactor;
 			Debug.DrawRay(otherPlayer.position, bounceForce, Color.red, 2f);
 
 			otherPlayer.AddForce(bounceForce, ForceMode2D.Impulse);
