@@ -41,22 +41,22 @@ namespace HelperClasses.Managers
             _mainCamera = cameraObject.GetComponent<Camera>();
         }
 
-        public List<MonkeyBar> GetAllMonkeyBars()
+        public static List<MonkeyBar> GetAllMonkeyBars()
         {
             return _monkeyBarsList;
         }
         
-        public GameObject GetEnvironment()
+        public static GameObject GetEnvironment()
         {
             return _environment;
         }
         
-        public GameObject GetPlayer1()
+        public static GameObject GetPlayer1()
         {
             return _player1;
         }
         
-        public GameObject GetPlayer2()
+        public static GameObject GetPlayer2()
         {
             return _player2;
         }
