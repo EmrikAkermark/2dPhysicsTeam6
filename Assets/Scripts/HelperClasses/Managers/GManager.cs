@@ -26,7 +26,9 @@ namespace HelperClasses.Managers
             InitializeVariables();
         }
 
-        private void InitializeVariables(){
+        private void InitializeVariables()
+        {
+            _monkeyBarsList = new List<MonkeyBar>();
             _player1 = GameObject.FindWithTag("Player1");
             _player2 = GameObject.FindWithTag("Player2");
             _environment = GameObject.FindWithTag("Environment");
