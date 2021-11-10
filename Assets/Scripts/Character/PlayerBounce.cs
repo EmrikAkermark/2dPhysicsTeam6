@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBounce : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public float BounceFactor = 1f;
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		
+		if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
+		{
+			var otherPlayer = collision.collider.GetComponent<Rigidbody2D>();
+			var bounceForce = -collision.relativeVelocity * BounceFactor;
+			Debug.DrawRay(otherPlayer.position, bounceForce, Color.red, 2f);
+
+			otherPlayer.AddForce(bounceForce, ForceMode2D.Impulse);
+		}
+
+	}
 }
