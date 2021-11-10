@@ -10,8 +10,6 @@ using UnityEngine.InputSystem.LowLevel;
 public class PlayerController : MonoBehaviour
 {
     // public Vector2 velocity;
-
-    public InputMaster controls;
     
     [SerializeField] private int movementAcceleration = 20;
     [SerializeField] private int jumpAcceleration = 10;
