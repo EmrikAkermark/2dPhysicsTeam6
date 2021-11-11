@@ -59,7 +59,7 @@ namespace HelperClasses.Player_Actions
                 //  That will lead to a null ref . 
                 var playerJumpEvent = new OnPlayerMonkeyBarRelease(otherPlayer,"Player");
                 EventManager.SendNewEvent(playerJumpEvent);
-                Destroy(otherPlayer);
+                //Destroy(otherPlayer);
                 Destroy(gameObject);
             }
             
