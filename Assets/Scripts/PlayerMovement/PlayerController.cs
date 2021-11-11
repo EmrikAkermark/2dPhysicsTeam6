@@ -168,7 +168,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _projectileArrow.SetActive(true);  
+            _projectileArrow.SetActive(true);
+			float distance = Vector2.Distance(transform.position, _projectileArrow.transform.position);
+			Vector2 direction = rb.velocity.normalized;
+			direction = direction == Vector2.zero ? Vector2.up : direction;
+			_projectileArrow.transform.position = transform.position + (Vector3)direction * distance;
         }
     }
 
