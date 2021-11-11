@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710286488900009881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9990001, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
   m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
   m_Children: []
   m_Father: {fileID: 5520007210388680199}
@@ -267,7 +267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementAcceleration: 20
-  jumpAcceleration: 10
+  maxJumpAcceleration: 10
+  minJumpAcceleration: 5
+  maxJumpChargeTime: 1
   maxHorizontalVelocity: 10
   airSteeringModifier: 0.21
   dragGroundedMoving: 1
