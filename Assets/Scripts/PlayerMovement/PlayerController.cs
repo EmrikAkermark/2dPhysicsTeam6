@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using HelperClasses.Event_System;
 using HelperClasses.Player_Actions;
 using Unity.VisualScripting;
@@ -12,7 +13,9 @@ public class PlayerController : MonoBehaviour
     // public Vector2 velocity;
     
     [SerializeField] private int movementAcceleration = 20;
-    [SerializeField] private int jumpAcceleration = 10;
+    [SerializeField] private int maxJumpAcceleration = 10;
+    [SerializeField] private int minJumpAcceleration = 5;
+    [SerializeField] private float maxJumpChargeTime = 1f;
     [Space]
     [SerializeField] private float maxHorizontalVelocity = 10;
     [Space]
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float _inputHorizontal = 0f;
     private float _inputVertical = 0f;
+    private float _jumpChargeTimer = 0f;
 
     private bool _jump = false;
     private bool _isGrounded = false;
@@ -51,6 +55,11 @@ public class PlayerController : MonoBehaviour
         else if (_isGrounded && !_isMoving) rb.drag = dragGroundedIdle;
         else if (!_isGrounded && _isMoving) rb.drag = dragInAirMoving;
         else rb.drag = dragInAirIdle;
+        
+        if (_jump)
+        {
+            _jumpChargeTimer += Time.deltaTime;
+        }
         
         // Debug
         // velocity = rb.velocity;
@@ -85,8 +94,8 @@ public class PlayerController : MonoBehaviour
 
         if (_jump)
         {
-            _jump = false;
-            rb.AddForce(new Vector2(0f, jumpAcceleration * rb.mass), ForceMode2D.Impulse);
+            // _jump = false;
+            // rb.AddForce(new Vector2(0f, jumpAcceleration * rb.mass), ForceMode2D.Impulse);
             
            // Will Fire 2 Events , Release from Monkey In Case The player was attached . 
            // And a event of Jumping To whomever wanna listen to that later in the game .
@@ -119,6 +128,11 @@ public class PlayerController : MonoBehaviour
         return (Mathf.Abs(v) - a) / (b - a);
     }
     
+    private float Remap(float inMin, float inMax, float outMin, float outMax, float v)
+    {
+        return outMin + ((v - inMin) * (outMax - outMin)) / (inMax - inMin);
+    }
+    
     // Input Controllers
     public void SetMovementInput(Vector2 movInput)
     {
@@ -128,7 +142,33 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (_isGrounded) _jump = true;
+        if (_isGrounded)
+        {
+            _jump = true;
+            StartCoroutine(JumpCharge());
+        }
+    }
+    
+    public void JumpChargeCanceled()
+    {
+        _jump = false;
+    }
+    
+    private IEnumerator JumpCharge()
+    {
+        // todo: redo this jump so it feels better. player should leave ground emediateeaely!
+        float t = 0f;
+        while (t < maxJumpChargeTime && _jump)
+        {
+            t += Time.deltaTime;
+            yield return new WaitForNextFrameUnit();
+        }
+
+        float jumpForce = Remap(0f, maxJumpChargeTime, minJumpAcceleration, maxJumpAcceleration, t);
+        
+        rb.AddForce(new Vector2(0f, jumpForce * rb.mass), ForceMode2D.Impulse);
+        
+        _jump = false;
     }
 
     public void Shoot()
