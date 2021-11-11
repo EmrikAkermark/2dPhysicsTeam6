@@ -96,9 +96,11 @@ GameObject:
   - component: {fileID: 5721618519515932034}
   - component: {fileID: 5721618519515932033}
   - component: {fileID: 5721618519515932032}
+  - component: {fileID: 4337318508927254905}
+  - component: {fileID: 5110716083232214953}
   m_Layer: 0
   m_Name: Player 2
-  m_TagString: Player2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementAcceleration: 20
-  maxJumpAcceleration: 12
+  addedJumpAccelerationPerFixedUpdate: 50
   minJumpAcceleration: 12
   maxJumpChargeTime: 0.2
   maxHorizontalVelocity: 10
@@ -193,6 +195,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
+--- !u!114 &4337318508927254905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721618519515932039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499e87a5d30d2c94d85b36053caed5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5110716083232214953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721618519515932039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65645eeced841794186dc5d5e94f8040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BounceFactor: 1
 --- !u!1 &5721618520604041605
 GameObject:
   m_ObjectHideFlags: 0
