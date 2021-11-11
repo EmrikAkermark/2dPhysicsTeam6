@@ -14,7 +14,6 @@ namespace HelperClasses.Player_Actions
         
         private Rigidbody2D _rigidbody2D;
         private GameObject _player; // Player who shot this Projectile
-        private bool _hitSomething = false;
         private Vector3 _lastVelocity = Vector3.zero;
         private float _lastFrameSpeed = 0;
         public void Fire(GameObject go)
@@ -26,7 +25,7 @@ namespace HelperClasses.Player_Actions
             _rigidbody2D = GetComponent<Rigidbody2D>();
             
             _rigidbody2D.AddForce(direction * force);
-            Invoke(nameof(DestroyWithDelay),10f); // Failsafe kill 
+            Invoke(nameof(DestroyWithDelay),15); // Failsafe kill 
 
         }
 
@@ -63,6 +62,7 @@ namespace HelperClasses.Player_Actions
                 //Destroy(otherPlayer);
                 Destroy(gameObject);
             }
+            
             if(_hitCount > bounceAmount+1) Destroy(gameObject);
             
         }
