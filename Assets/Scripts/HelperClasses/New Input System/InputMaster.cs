@@ -33,6 +33,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a444cf68-5627-4654-9a80-21d4bf00b729"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -101,6 +109,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2542e26-b80b-4167-8938-fbc1e47ebc1f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -121,6 +140,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""13a8cc12-9847-4fd0-995f-02dc21bf11b0"",
                     ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""dda3a91d-18bb-4eae-adf4-7ec264bbd536"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -191,6 +218,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""194f46e2-0a90-4ebf-9c08-979e5736b2f6"",
+                    ""path"": ""<Keyboard>/numpadPeriod"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -201,10 +239,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player1 = asset.FindActionMap("Player 1", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
         m_Player1_Movement = m_Player1.FindAction("Movement", throwIfNotFound: true);
+        m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
         // Player 2
         m_Player2 = asset.FindActionMap("Player 2", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
         m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
+        m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -256,12 +296,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private IPlayer1Actions m_Player1ActionsCallbackInterface;
     private readonly InputAction m_Player1_Jump;
     private readonly InputAction m_Player1_Movement;
+    private readonly InputAction m_Player1_Shoot;
     public struct Player1Actions
     {
         private @InputMaster m_Wrapper;
         public Player1Actions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
         public InputAction @Movement => m_Wrapper.m_Player1_Movement;
+        public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -277,6 +319,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
+                @Shoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -287,6 +332,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -297,12 +345,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private IPlayer2Actions m_Player2ActionsCallbackInterface;
     private readonly InputAction m_Player2_Jump;
     private readonly InputAction m_Player2_Movement;
+    private readonly InputAction m_Player2_Shoot;
     public struct Player2Actions
     {
         private @InputMaster m_Wrapper;
         public Player2Actions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player2_Jump;
         public InputAction @Movement => m_Wrapper.m_Player2_Movement;
+        public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -318,6 +368,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
+                @Shoot.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -328,6 +381,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -336,10 +392,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

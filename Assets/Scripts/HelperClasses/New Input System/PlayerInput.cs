@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace HelperClasses.New_Input_System
 {
@@ -11,6 +12,7 @@ namespace HelperClasses.New_Input_System
 
         public PlayerSelection playerNumber;
         private InputMaster _controls;
+        //private InputAction _shootInput;
         private PlayerController _playerController;
     
         private void Awake()
@@ -26,9 +28,20 @@ namespace HelperClasses.New_Input_System
             {
                 case PlayerSelection.Player1:
                     _controls.Player1.Jump.performed += ctx => _playerController.Jump();
+                    _controls.Player1.Shoot.performed += ctx => _playerController.Shoot();
+
+                    //_controls.Player1.Shoot.started += ctx => _playerController.Shoot();
+                    //_controls.Player1.Shoot.canceled += ctx => _playerController.DoneShooting();
+
+
                     break;
                 case PlayerSelection.Player2:
                     _controls.Player2.Jump.performed += ctx => _playerController.Jump();
+                    _controls.Player2.Shoot.performed += ctx => _playerController.Shoot();
+          
+                    //_controls.Player2.Shoot.started += ctx => _playerController.Shoot();
+                    //_controls.Player2.Shoot.canceled += ctx => _playerController.DoneShooting();
+
                     break;
             }
         }

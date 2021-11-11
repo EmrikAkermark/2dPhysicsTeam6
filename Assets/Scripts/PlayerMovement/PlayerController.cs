@@ -1,5 +1,6 @@
 using System;
 using HelperClasses.Event_System;
+using HelperClasses.Player_Actions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private float dragInAirIdle = 1f;
     [Space]
     [SerializeField] private Vector2 extraGravity = new Vector2(0f, 0f);
+    [Space]
+
+    private GameObject _projectileArrow;
     
     private Rigidbody2D rb;
     private float _inputHorizontal = 0f;
@@ -35,7 +39,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        _projectileArrow = transform.Find("ProjectileArrow").gameObject;
     }
+    
 
     void Update()
     {
@@ -124,5 +130,25 @@ public class PlayerController : MonoBehaviour
     {
         if (_isGrounded) _jump = true;
     }
-    
+
+    public void Shoot()
+    {
+        if (_projectileArrow.activeSelf)
+        {
+            _projectileArrow.SetActive(false);
+            var projectileObj = Instantiate (Resources.Load ("Projectile")) as GameObject;
+            if (projectileObj == null) return;
+            projectileObj.transform.position = _projectileArrow.transform.position;
+            // Will make new Vector3(0.7f,0,0) dynamic later , by getting the x distance from center . Hard coded now just to be fast
+            // As designers might not want to reset the Position , So will be deleting that part anyway.
+            _projectileArrow.transform.localPosition = new Vector3(0.7f,0,0); 
+            _projectileArrow.transform.rotation = Quaternion.Euler(Vector3.zero);
+            var projectile = projectileObj.GetComponent<ProjectileScript>();
+            if(projectile!=null) projectile.Fire(gameObject);
+        }
+        else
+        {
+            _projectileArrow.SetActive(true);  
+        }
+    }
 }

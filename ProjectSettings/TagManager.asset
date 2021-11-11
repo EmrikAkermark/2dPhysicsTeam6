@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Player1
-  - Player2
   - Environment
   - MonkeyBar
+  - Projectile
   layers:
   - Default
   - TransparentFX

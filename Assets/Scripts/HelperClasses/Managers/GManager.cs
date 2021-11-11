@@ -10,8 +10,7 @@ namespace HelperClasses.Managers
         private static GameObject _player2;
         private static List<MonkeyBar> _monkeyBarsList;
         private static GameObject _environment;
-        private static Camera _mainCamera; 
-
+        private static Camera _mainCamera;
 
         public static GManager Instance { get; private set; }
  
@@ -29,8 +28,8 @@ namespace HelperClasses.Managers
         private void InitializeVariables()
         {
             _monkeyBarsList = new List<MonkeyBar>();
-            _player1 = GameObject.FindWithTag("Player1");
-            _player2 = GameObject.FindWithTag("Player2");
+            _player1 = GameObject.Find("Player 1");
+            _player2 = GameObject.Find("Player 2");
             _environment = GameObject.FindWithTag("Environment");
             
             GameObject[] allMonkeyBars = GameObject.FindGameObjectsWithTag("MonkeyBar");
