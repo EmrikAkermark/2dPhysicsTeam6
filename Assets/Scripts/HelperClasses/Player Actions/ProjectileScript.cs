@@ -12,6 +12,7 @@ namespace HelperClasses.Player_Actions
         private Rigidbody2D _rigidbody2D;
         private GameObject _player; // Player who shot this Projectile
         private bool _HitSomething = false;
+        private Vector3 _velocityHitSpeed = Vector3.zero;
         public void Fire(GameObject go)
         {
             // _Player represent the Owner of the bullet , We can later ignore collision with self 
@@ -41,18 +42,28 @@ namespace HelperClasses.Player_Actions
             
             _HitSomething = true;
 
-            if (otherPlayer.tag.Equals("Player") && otherPlayer != _player)
+            if (otherPlayer.tag.Equals("Player"))
             {
                 // I will release the player , In case the MonkeyBar Script still have the Player Attached
                 //  That will lead to a null ref . 
                 var playerJumpEvent = new OnPlayerMonkeyBarRelease(otherPlayer,"Player");
                 EventManager.SendNewEvent(playerJumpEvent);
                 Destroy(otherPlayer);
-                
                 Destroy(gameObject);
+             
+            }
+            else
+            {
+                _velocityHitSpeed = _rigidbody2D.velocity;
             }
         }
-        
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            print("I am exiting the collision");
+            _rigidbody2D.velocity =  _rigidbody2D.velocity * 100;
+            
+        }
 
         private void OnBecameInvisible()
         {
