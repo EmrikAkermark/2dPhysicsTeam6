@@ -8,8 +8,6 @@ TagManager:
   - MonkeyBar
   - Projectile
   - Pickup
-  - Player2
-  - Player1
   layers:
   - Default
   - TransparentFX
