@@ -13,18 +13,14 @@ public class PlayerController : MonoBehaviour
     // public Vector2 velocity;
     
     [SerializeField] private int movementAcceleration = 20;
-    [SerializeField] private int addedJumpAccelerationPerFixedUpdate = 50;
-    [SerializeField] private int minJumpAcceleration = 10;
+    [SerializeField] private int addedJumpAccelerationPerFixedUpdate = 35;
+    [SerializeField] private int minJumpAcceleration = 8;
     [SerializeField] private float maxJumpChargeTime = .2f;
     [Space]
     [SerializeField] private float maxHorizontalVelocity = 10;
+    [SerializeField] private float frictionCoefficient = 30f;
     [Space]
     [SerializeField, Range(0f, 5f)] private float airSteeringModifier = .2f;
-    [Space]
-    [SerializeField, Range(0f, 10f)] private float dragGroundedMoving = 1f;
-    [SerializeField, Range(0f, 10f)] private float dragGroundedIdle = 10f;
-    [SerializeField, Range(0f, 10f)] private float dragInAirMoving = .5f;
-    [SerializeField, Range(0f, 10f)] private float dragInAirIdle = 1f;
     [Space]
     [SerializeField] private Vector2 extraGravity = new Vector2(0f, 0f);
     [Space]
@@ -34,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float _inputHorizontal = 0f;
     private float _inputVertical = 0f;
-    // private float _jumpChargeTimer = 0f;
 
     private bool _jump = false;
     private bool _isGrounded = false;
@@ -46,16 +41,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _projectileArrow = transform.Find("ProjectileArrow").gameObject;
     }
-    
+
 
     void Update()
     {
         _isMoving = _inputHorizontal != 0;
-        
-        if (_isGrounded && _isMoving) rb.drag = dragGroundedMoving;
-        else if (_isGrounded && !_isMoving) rb.drag = dragGroundedIdle;
-        else if (!_isGrounded && _isMoving) rb.drag = dragInAirMoving;
-        else rb.drag = dragInAirIdle;
     }
 
     private void FixedUpdate()
@@ -81,7 +71,22 @@ public class PlayerController : MonoBehaviour
 
         force += extraGravity * rb.mass; // mul by mass to get correct force to apply, because gravity is an acceleration.
         
-        rb.AddForce(force);
+        Vector2 right = transform.right;
+        Vector2 horizontalVelocity = Vector2.Dot(rb.velocity, right) * right;
+        
+        float facingInputDir = Vector2.Dot(new Vector2(_inputHorizontal, 0f), rb.velocity);
+
+        Vector2 horizontalFriction;
+        if (facingInputDir > 0f)
+        {
+            horizontalFriction = -horizontalVelocity * frictionCoefficient;
+        }
+        else
+        {
+            horizontalFriction = -horizontalVelocity * (frictionCoefficient * 10f);
+        }
+
+        rb.AddForce(force + horizontalFriction);
 
         if (_jump)
         {
@@ -96,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Environment"))
         {
