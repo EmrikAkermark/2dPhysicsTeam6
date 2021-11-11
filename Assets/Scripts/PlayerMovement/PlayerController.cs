@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool _jump = false;
     private bool _isGrounded = false;
     private bool _isMoving = false;
+	private bool _isAttached = false;
 
     private void Awake()
     {
@@ -191,4 +192,14 @@ public class PlayerController : MonoBehaviour
             _projectileArrow.SetActive(true);  
         }
     }
+
+	public bool GetIsAttached()
+	{
+		return _isAttached;
+	}
+
+	public void SetIsAttached(bool value)
+	{
+		_isAttached = value;
+	}
 }

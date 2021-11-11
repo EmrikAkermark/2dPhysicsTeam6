@@ -10,6 +10,8 @@ public class MonkeyBar : MonoBehaviour
 	public float ReleaseAngle = 45f;
 	public float DistanceFromMonkeyBar = 1f;
 
+	[Range(1, 10)]public int MaxThingsOnMonkeyBar = 1;
+
 	private Transform attachedPlayer;
 	private Rigidbody2D attachedRigidbody;
 	private HingeJoint2D hingeJoint;
@@ -46,18 +48,18 @@ public class MonkeyBar : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		Rigidbody2D playerRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
-
+		PlayerController AHHH = collision.gameObject.GetComponent<PlayerController>();
 		if(playerRigidbody != null)
 		{
-			if(hasAttached)
+			if(hasAttached || AHHH.GetIsAttached())
 			{
-
+				return;
 				Vector2 normal = (Vector2)collision.transform.position - (Vector2)transform.position;
 				Vector2 reflection = Vector2.Reflect(playerRigidbody.velocity.normalized, normal.normalized);
 
 				playerRigidbody.velocity = reflection * Math.Max(playerRigidbody.velocity.magnitude, 3f);
 
-				return;
+				
 				ReleaseFromMonkeyBar();
 			}
 			AttachToMonkeyBarPosition(collision.transform, playerRigidbody);
@@ -93,7 +95,8 @@ public class MonkeyBar : MonoBehaviour
 
 		attachedPlayer.up = -vectorToPlayer;
 		hingeJoint.connectedBody = attachedRigidbody;
-		
+		PlayerController AHHH = player.GetComponent<PlayerController>();
+		AHHH.SetIsAttached(true);
 	}
 
 	private void FixedUpdate()
@@ -181,10 +184,13 @@ public class MonkeyBar : MonoBehaviour
 		attachedPlayer.up = Vector3.up;
 		attachedRigidbody.angularVelocity = 0f;
 		attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+		PlayerController AHHHH = attachedPlayer.GetComponent<PlayerController>();
+		AHHHH.SetIsAttached(false);
 
 		attachedPlayer = null;
 		attachedRigidbody = null;
 		hasAttached = false;
+
 	}
 
 
