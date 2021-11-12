@@ -48,10 +48,10 @@ public class MonkeyBar : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		Rigidbody2D playerRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
-		PlayerController AHHH = collision.gameObject.GetComponent<PlayerController>();
+		PlayerController PC = collision.gameObject.GetComponent<PlayerController>();
 		if(playerRigidbody != null)
 		{
-			if(hasAttached || AHHH.GetIsAttached())
+			if(hasAttached || PC.GetIsAttached())
 			{
 				return;
 				Vector2 normal = (Vector2)collision.transform.position - (Vector2)transform.position;
@@ -95,8 +95,8 @@ public class MonkeyBar : MonoBehaviour
 
 		attachedPlayer.up = -vectorToPlayer;
 		hingeJoint.connectedBody = attachedRigidbody;
-		PlayerController AHHH = player.GetComponent<PlayerController>();
-		AHHH.SetIsAttached(true);
+		PlayerController PC = player.GetComponent<PlayerController>();
+		PC.SetIsAttached(true);
 	}
 
 	private void FixedUpdate()
@@ -184,8 +184,8 @@ public class MonkeyBar : MonoBehaviour
 		attachedPlayer.up = Vector3.up;
 		attachedRigidbody.angularVelocity = 0f;
 		attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-		PlayerController AHHHH = attachedPlayer.GetComponent<PlayerController>();
-		AHHHH.SetIsAttached(false);
+		PlayerController PC = attachedPlayer.GetComponent<PlayerController>();
+		PC.SetIsAttached(false);
 
 		attachedPlayer = null;
 		attachedRigidbody = null;
