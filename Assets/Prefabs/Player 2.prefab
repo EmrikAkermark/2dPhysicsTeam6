@@ -172,16 +172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementAcceleration: 20
-  addedJumpAccelerationPerFixedUpdate: 50
-  minJumpAcceleration: 12
-  maxJumpChargeTime: 0.2
+  addedJumpAccelerationPerFixedUpdate: 15
+  minJumpAcceleration: 10
+  maxJumpChargeTime: 0.25
   maxHorizontalVelocity: 10
+  frictionCoefficient: 30
   airSteeringModifier: 0.2
-  dragGroundedMoving: 1
-  dragGroundedIdle: 10
-  dragInAirMoving: 0.5
-  dragInAirIdle: 1
-  extraGravity: {x: 0, y: -10}
+  extraGravity: {x: 0, y: -15}
 --- !u!114 &5721618519515932032
 MonoBehaviour:
   m_ObjectHideFlags: 0
