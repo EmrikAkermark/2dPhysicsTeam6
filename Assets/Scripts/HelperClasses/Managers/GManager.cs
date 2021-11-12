@@ -8,6 +8,8 @@ namespace HelperClasses.Managers
     {
         private static GameObject _player1;
         private static GameObject _player2;
+		private static Transform _p1Respawn;
+		private static Transform _p2Respawn;
         private static List<MonkeyBar> _monkeyBarsList;
         private static GameObject _environment;
         private static Camera _mainCamera;
@@ -30,6 +32,8 @@ namespace HelperClasses.Managers
             _monkeyBarsList = new List<MonkeyBar>();
             _player1 = GameObject.Find("Player 1");
             _player2 = GameObject.Find("Player 2");
+			_p1Respawn = GameObject.Find("P1 Respawn").transform;
+			_p2Respawn = GameObject.Find("P2 Respawn").transform;
             _environment = GameObject.FindWithTag("Environment");
             
             GameObject[] allMonkeyBars = GameObject.FindGameObjectsWithTag("MonkeyBar");
@@ -67,6 +71,17 @@ namespace HelperClasses.Managers
             return _mainCamera;
         }
         
+		public static void RespawnPlayer(GameObject player)
+		{
+			if(player == _player1)
+			{
+				player.transform.position = _p1Respawn.position;
+			}
+			else if(player == _player2)
+			{
+				player.transform.position = _p2Respawn.position;
+			}
+		}
 
     }
  
