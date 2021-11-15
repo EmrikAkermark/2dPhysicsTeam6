@@ -3081,7 +3081,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5721618519515932033, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: maxJumpChargeTime
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5721618519515932033, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: movementAcceleration
@@ -3093,7 +3093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5721618519515932033, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: addedJumpAccelerationPerFixedUpdate
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5721618519515932039, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: m_Name
@@ -3641,7 +3641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5520007210388680196, guid: c414f47e6aca0204bbfa5bfacca8aab1, type: 3}
       propertyPath: addedJumpAccelerationPerFixedUpdate
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5520007210388680199, guid: c414f47e6aca0204bbfa5bfacca8aab1, type: 3}
       propertyPath: m_RootOrder
