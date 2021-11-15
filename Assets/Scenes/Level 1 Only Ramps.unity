@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 114122358}
   m_Layer: 0
   m_Name: Level Sprite Profile (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -291,17 +291,24 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 3.3990746, y: 1.4587269}
-  - {x: 2.227583, y: 2.60955}
-  - {x: 1.2359238, y: 3.0519295}
-  - {x: 0.41339493, y: 3.0767097}
-  - {x: -1.839016, y: 2.6146574}
-  - {x: -1.6571598, y: 1.7224216}
-  - {x: 0.5465908, y: 2.1324987}
-  - {x: 1.0676575, y: 2.0961666}
-  - {x: 1.6970978, y: 1.7687488}
-  - {x: 2.6959171, y: 0.85537004}
-  - {x: 3.3740454, y: 1.458727}
+  - {x: 3.4287314, y: 1.4524598}
+  - {x: 2.899253, y: 2.0525808}
+  - {x: 2.4486294, y: 2.4270506}
+  - {x: 1.9584789, y: 2.7580214}
+  - {x: 1.6171379, y: 2.924684}
+  - {x: 1.2069414, y: 3.051456}
+  - {x: 0.83734685, y: 3.1138282}
+  - {x: 0.39844322, y: 3.0904713}
+  - {x: 0.090972066, y: 3.0323148}
+  - {x: -0.45402527, y: 2.9331927}
+  - {x: -1.8481073, y: 2.6486049}
+  - {x: -1.6192296, y: 1.6983778}
+  - {x: -0.29301298, y: 1.9666948}
+  - {x: 0.6610315, y: 2.1154394}
+  - {x: 1.1279306, y: 2.0653563}
+  - {x: 1.9088092, y: 1.6279898}
+  - {x: 2.6640298, y: 0.8316331}
+  - {x: 3.2722564, y: 1.3278415}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -315,7 +322,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 15.66
+      value: -15.12
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -390,7 +397,7 @@ GameObject:
   - component: {fileID: 329975367}
   m_Layer: 0
   m_Name: Level Sprite Profile (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,22 +432,20 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -3.6340008, y: 0.39878058}
-  - {x: -3.5833867, y: -0.6257373}
-  - {x: 0.0069077015, y: -0.48378792}
-  - {x: 1.5293546, y: -0.29970843}
-  - {x: 2.3577542, y: -0.09465074}
-  - {x: 3.860347, y: 0.72711515}
-  - {x: 4.435105, y: 1.3527775}
-  - {x: 4.399824, y: 1.3277376}
-  - {x: 4.4010944, y: 1.3797126}
-  - {x: 3.5956283, y: 1.9366866}
-  - {x: 3.1950161, y: 1.4400098}
-  - {x: 2.6857753, y: 1.2301351}
-  - {x: 1.8118285, y: 0.7749691}
-  - {x: 0.41152692, y: 0.56892586}
-  - {x: -0.55183625, y: 0.47387767}
-  - {x: -3.62978, y: 0.36536992}
+  - {x: 3.619657, y: 1.9109607}
+  - {x: 3.1374826, y: 1.4424772}
+  - {x: 2.5222087, y: 1.0646043}
+  - {x: 1.5499654, y: 0.71871585}
+  - {x: 0.6124314, y: 0.5200575}
+  - {x: -1.4716947, y: 0.4552184}
+  - {x: -3.6606328, y: 0.3669712}
+  - {x: -3.5972912, y: -0.6139056}
+  - {x: -0.4240563, y: -0.52075124}
+  - {x: 1.4020444, y: -0.32143795}
+  - {x: 2.6099539, y: 0.023629691}
+  - {x: 3.7019534, y: 0.63523173}
+  - {x: 4.3908257, y: 1.3269703}
+  - {x: 3.6179192, y: 1.9020026}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -500,7 +505,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -573,11 +578,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -15.12
+      value: 10.200001
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 2.92
+      value: 9.6
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901488093343, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_RootOrder
@@ -648,7 +653,7 @@ GameObject:
   - component: {fileID: 442245643}
   m_Layer: 0
   m_Name: Ramp Begin Right
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +713,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -802,24 +807,21 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.8752909, y: 6.014037}
-  - {x: 2.8753338, y: 5.9344883}
-  - {x: 3.7475777, y: 6.067942}
-  - {x: 3.8136444, y: 4.3918695}
-  - {x: 3.7130947, y: 2.902155}
-  - {x: 3.5950222, y: 1.9979572}
-  - {x: 3.099802, y: 1.3295479}
-  - {x: 2.404276, y: 0.97516537}
-  - {x: 1.6265144, y: 0.7251396}
-  - {x: 0.2210331, y: 0.4955368}
-  - {x: -0.9551945, y: 0.41305828}
-  - {x: -2.5684223, y: 0.40298653}
-  - {x: -2.5673409, y: 1.3497648}
-  - {x: -0.059921265, y: 1.453887}
-  - {x: 1.3572273, y: 1.6534338}
-  - {x: 2.4212952, y: 2.055232}
-  - {x: 2.664238, y: 2.351203}
-  - {x: 2.8396015, y: 5.9499197}
+  - {x: 2.8540058, y: 5.8906946}
+  - {x: 2.8140156, y: 4.359117}
+  - {x: 2.7980123, y: 2.8839934}
+  - {x: 2.5945587, y: 2.2359998}
+  - {x: 1.9602647, y: 1.8435936}
+  - {x: 1.1244621, y: 1.5777264}
+  - {x: -0.17916131, y: 1.4228613}
+  - {x: -2.5970552, y: 1.3290629}
+  - {x: -2.5008671, y: 0.41547132}
+  - {x: 0.17521477, y: 0.46129513}
+  - {x: 2.7657225, y: 1.1253264}
+  - {x: 3.5194774, y: 1.7642579}
+  - {x: 3.725694, y: 2.7768707}
+  - {x: 3.7681365, y: 6.110548}
+  - {x: 2.8553293, y: 5.9075584}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -838,7 +840,7 @@ GameObject:
   - component: {fileID: 476149711}
   m_Layer: 0
   m_Name: Level Sprite Profile
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -898,7 +900,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -992,16 +994,20 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -3.587906, y: 0.32307556}
-  - {x: -0.2745553, y: 0.46499538}
-  - {x: 1.8177487, y: 0.76211613}
-  - {x: 2.8712747, y: 1.2531335}
-  - {x: 3.5774238, y: 1.9448491}
-  - {x: 4.3644466, y: 1.3582729}
-  - {x: 2.9139345, y: 0.13782239}
-  - {x: 0.6101743, y: -0.48201913}
-  - {x: -3.6041317, y: -0.64541966}
-  - {x: -3.65171, y: 0.32307655}
+  - {x: 3.619657, y: 1.9109607}
+  - {x: 3.1374826, y: 1.4424772}
+  - {x: 2.5222087, y: 1.0646043}
+  - {x: 1.5499654, y: 0.71871585}
+  - {x: 0.6124314, y: 0.5200575}
+  - {x: -1.4716947, y: 0.4552184}
+  - {x: -3.6606328, y: 0.3669712}
+  - {x: -3.5972912, y: -0.6139056}
+  - {x: -0.4240563, y: -0.52075124}
+  - {x: 1.4020444, y: -0.32143795}
+  - {x: 2.6099539, y: 0.023629691}
+  - {x: 3.7019534, y: 0.63523173}
+  - {x: 4.3908257, y: 1.3269703}
+  - {x: 3.6179192, y: 1.9020026}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1017,7 +1023,7 @@ GameObject:
   - component: {fileID: 515431776}
   m_Layer: 0
   m_Name: Outer Parts
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1057,7 +1063,7 @@ GameObject:
   - component: {fileID: 515742529}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,7 +1113,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -1198,7 +1204,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9583194, y: 8.22568}
+  m_Offset: {x: 1.8996964, y: 8.264763}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1209,7 +1215,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9518752, y: 7.7942524}
+  m_Size: {x: 0.99095535, y: 7.7160873}
   m_EdgeRadius: 0
 --- !u!1 &517389090
 GameObject:
@@ -1225,7 +1231,7 @@ GameObject:
   - component: {fileID: 517389094}
   m_Layer: 0
   m_Name: Level Sprite Profile (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1285,7 +1291,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -1379,15 +1385,18 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.7919803, y: 2.1011746}
-  - {x: 2.7446852, y: 1.1059235}
-  - {x: -0.17214584, y: 1.1157218}
-  - {x: -1.7171621, y: 0.8973793}
-  - {x: -3.0880976, y: 0.17831308}
-  - {x: -3.667148, y: 1.0446401}
-  - {x: -2.4907517, y: 1.6553035}
-  - {x: -1.0824995, y: 2.029359}
-  - {x: 2.77031, y: 2.1011748}
+  - {x: 2.7832794, y: 2.0634553}
+  - {x: 0.71884656, y: 2.1073506}
+  - {x: -0.72803617, y: 2.050606}
+  - {x: -1.3443794, y: 1.9834158}
+  - {x: -2.0169244, y: 1.8067048}
+  - {x: -3.6499, y: 1.0528955}
+  - {x: -3.119163, y: 0.1950649}
+  - {x: -2.4390748, y: 0.57449484}
+  - {x: -1.5694246, y: 0.91121644}
+  - {x: -0.19954348, y: 1.1013156}
+  - {x: 2.761692, y: 1.0809376}
+  - {x: 2.795906, y: 2.056005}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1406,7 +1415,7 @@ GameObject:
   - component: {fileID: 651304949}
   m_Layer: 0
   m_Name: Roof Woofs
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1456,7 +1465,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -1574,7 +1583,7 @@ GameObject:
   - component: {fileID: 686585743}
   m_Layer: 0
   m_Name: Level Sprite Profile (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,7 +1643,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -1728,17 +1737,21 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5826646, y: 0.09034735}
-  - {x: 0.87854004, y: 0.077163935}
-  - {x: 2.2767582, y: 0.5063857}
-  - {x: 3.1349678, y: 1.1488916}
-  - {x: 3.4057617, y: 2.0791204}
-  - {x: 4.3784084, y: 2.1728408}
-  - {x: 4.1881695, y: 1.0688385}
-  - {x: 3.2282257, y: -0.10097313}
-  - {x: 1.5721493, y: -0.79992723}
-  - {x: -0.6281471, y: -0.96013355}
-  - {x: -0.5816431, y: -0.015496612}
+  - {x: 3.3751438, y: 2.0439143}
+  - {x: 3.2849548, y: 1.5368853}
+  - {x: 3.0310621, y: 1.0591317}
+  - {x: 2.422061, y: 0.6257577}
+  - {x: 1.836885, y: 0.3461579}
+  - {x: 0.7198868, y: 0.08787447}
+  - {x: -0.5891452, y: 0.06430945}
+  - {x: -0.6664765, y: -0.895843}
+  - {x: 0.6189282, y: -0.90075904}
+  - {x: 1.6488099, y: -0.71899796}
+  - {x: 2.9194982, y: -0.2457453}
+  - {x: 3.9570084, y: 0.64373195}
+  - {x: 4.3154726, y: 1.486158}
+  - {x: 4.345958, y: 2.1790063}
+  - {x: 3.3600674, y: 2.0681596}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1792,7 +1805,7 @@ GameObject:
   - component: {fileID: 736286001}
   m_Layer: 0
   m_Name: Level Sprite Profile (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1852,7 +1865,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -1946,17 +1959,24 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 3.3990746, y: 1.4587269}
-  - {x: 2.227583, y: 2.60955}
-  - {x: 1.2359238, y: 3.0519295}
-  - {x: 0.41339493, y: 3.0767097}
-  - {x: -1.839016, y: 2.6146574}
-  - {x: -1.6571598, y: 1.7224216}
-  - {x: 0.5465908, y: 2.1324987}
-  - {x: 1.0676575, y: 2.0961666}
-  - {x: 1.6970978, y: 1.7687488}
-  - {x: 2.6959171, y: 0.85537004}
-  - {x: 3.3740454, y: 1.458727}
+  - {x: 3.4287314, y: 1.4524598}
+  - {x: 2.899253, y: 2.0525808}
+  - {x: 2.4486294, y: 2.4270506}
+  - {x: 1.9584789, y: 2.7580214}
+  - {x: 1.6171379, y: 2.924684}
+  - {x: 1.2069414, y: 3.051456}
+  - {x: 0.83734685, y: 3.1138282}
+  - {x: 0.39844322, y: 3.0904713}
+  - {x: 0.090972066, y: 3.0323148}
+  - {x: -0.45402527, y: 2.9331927}
+  - {x: -1.8481073, y: 2.6486049}
+  - {x: -1.6192296, y: 1.6983778}
+  - {x: -0.29301298, y: 1.9666948}
+  - {x: 0.6610315, y: 2.1154394}
+  - {x: 1.1279306, y: 2.0653563}
+  - {x: 1.9088092, y: 1.6279898}
+  - {x: 2.6640298, y: 0.8316331}
+  - {x: 3.2722564, y: 1.3278415}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2058,7 +2078,7 @@ GameObject:
   - component: {fileID: 892057895}
   m_Layer: 0
   m_Name: Level Sprite Profile (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2118,7 +2138,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -2212,15 +2232,18 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.7919803, y: 2.1011746}
-  - {x: 2.7446852, y: 1.1059235}
-  - {x: -0.17214584, y: 1.1157218}
-  - {x: -1.7171621, y: 0.8973793}
-  - {x: -3.0880976, y: 0.17831308}
-  - {x: -3.667148, y: 1.0446401}
-  - {x: -2.4907517, y: 1.6553035}
-  - {x: -1.0824995, y: 2.029359}
-  - {x: 2.77031, y: 2.1011748}
+  - {x: 2.7832794, y: 2.0634553}
+  - {x: 0.71884656, y: 2.1073506}
+  - {x: -0.72803617, y: 2.050606}
+  - {x: -1.3443794, y: 1.9834158}
+  - {x: -2.0169244, y: 1.8067048}
+  - {x: -3.6499, y: 1.0528955}
+  - {x: -3.119163, y: 0.1950649}
+  - {x: -2.4390748, y: 0.57449484}
+  - {x: -1.5694246, y: 0.91121644}
+  - {x: -0.19954348, y: 1.1013156}
+  - {x: 2.761692, y: 1.0809376}
+  - {x: 2.795906, y: 2.056005}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2239,7 +2262,7 @@ GameObject:
   - component: {fileID: 921932654}
   m_Layer: 0
   m_Name: Roof Woofs
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2289,7 +2312,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -2407,7 +2430,7 @@ GameObject:
   - component: {fileID: 1094872092}
   m_Layer: 0
   m_Name: Level Sprite Profile (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2442,17 +2465,21 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5826646, y: 0.09034735}
-  - {x: 0.87854004, y: 0.077163935}
-  - {x: 2.2767582, y: 0.5063857}
-  - {x: 3.1349678, y: 1.1488916}
-  - {x: 3.4057617, y: 2.0791204}
-  - {x: 4.3784084, y: 2.1728408}
-  - {x: 4.1881695, y: 1.0688385}
-  - {x: 3.2282257, y: -0.10097313}
-  - {x: 1.5721493, y: -0.79992723}
-  - {x: -0.6281471, y: -0.96013355}
-  - {x: -0.5816431, y: -0.015496612}
+  - {x: 3.3751438, y: 2.0439143}
+  - {x: 3.2849548, y: 1.5368853}
+  - {x: 3.0310621, y: 1.0591317}
+  - {x: 2.422061, y: 0.6257577}
+  - {x: 1.836885, y: 0.3461579}
+  - {x: 0.7198868, y: 0.08787447}
+  - {x: -0.5891452, y: 0.06430945}
+  - {x: -0.6664765, y: -0.895843}
+  - {x: 0.6189282, y: -0.90075904}
+  - {x: 1.6488099, y: -0.71899796}
+  - {x: 2.9194982, y: -0.2457453}
+  - {x: 3.9570084, y: 0.64373195}
+  - {x: 4.3154726, y: 1.486158}
+  - {x: 4.345958, y: 2.1790063}
+  - {x: 3.3600674, y: 2.0681596}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2512,7 +2539,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -2587,7 +2614,7 @@ GameObject:
   - component: {fileID: 1169809668}
   m_Layer: 0
   m_Name: Obstacles/Shapes
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2629,7 +2656,7 @@ GameObject:
   - component: {fileID: 1210429161}
   m_Layer: 0
   m_Name: Ramp Begin Left
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2664,24 +2691,21 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.8211958, y: 5.9084387}
-  - {x: 2.7007146, y: 2.391396}
-  - {x: 2.249594, y: 1.9631808}
-  - {x: 1.197039, y: 1.6384895}
-  - {x: -0.76691806, y: 1.3853955}
-  - {x: -2.5434463, y: 1.3640836}
-  - {x: -2.575622, y: 0.35968232}
-  - {x: -0.116493344, y: 0.4567678}
-  - {x: 0.41153574, y: 0.5638323}
-  - {x: 1.1353776, y: 0.6188719}
-  - {x: 1.4658415, y: 0.7132249}
-  - {x: 1.7555702, y: 0.76302457}
-  - {x: 2.8609028, y: 1.209938}
-  - {x: 3.438452, y: 1.677542}
-  - {x: 3.6336474, y: 2.14883}
-  - {x: 3.7837021, y: 3.0323448}
-  - {x: 3.767652, y: 6.09097}
-  - {x: 2.8241193, y: 5.9709444}
+  - {x: 2.8540058, y: 5.8906946}
+  - {x: 2.8140156, y: 4.359117}
+  - {x: 2.7980123, y: 2.8839934}
+  - {x: 2.5945587, y: 2.2359998}
+  - {x: 1.9602647, y: 1.8435936}
+  - {x: 0.85977364, y: 1.5707474}
+  - {x: -0.17916131, y: 1.4228613}
+  - {x: -2.5970552, y: 1.3290629}
+  - {x: -2.5008671, y: 0.41547132}
+  - {x: 0.17521477, y: 0.46129513}
+  - {x: 2.7657225, y: 1.1253264}
+  - {x: 3.5194774, y: 1.7642579}
+  - {x: 3.725694, y: 2.7768707}
+  - {x: 3.7681365, y: 6.110548}
+  - {x: 2.8553293, y: 5.9075584}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2741,7 +2765,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -2819,7 +2843,7 @@ GameObject:
   - component: {fileID: 1318270950}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2869,7 +2893,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -2960,7 +2984,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9046259, y: 8.269415}
+  m_Offset: {x: 1.9172106, y: 8.269415}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2971,7 +2995,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9011364, y: 7.7067814}
+  m_Size: {x: 1.026968, y: 7.7067814}
   m_EdgeRadius: 0
 --- !u!1001 &1474097895
 PrefabInstance:
@@ -2990,11 +3014,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5721618519515932060, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.55
+      value: 22.49
       objectReference: {fileID: 0}
     - target: {fileID: 5721618519515932060, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.91
+      value: -9.85
       objectReference: {fileID: 0}
     - target: {fileID: 5721618519515932060, guid: 34acae1b998a3334aa05c7b28f44266f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3044,7 +3068,7 @@ GameObject:
   - component: {fileID: 1488022452}
   m_Layer: 0
   m_Name: Middle
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3148,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -3218,23 +3242,31 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 3.5498753, y: 5.592392}
-  - {x: 2.5662773, y: 5.6313534}
-  - {x: 2.607912, y: 7.2644477}
-  - {x: 2.8661437, y: 12.86161}
-  - {x: 2.833669, y: 16.08728}
-  - {x: 2.6285686, y: 17.3195}
-  - {x: 1.9938676, y: 18.850243}
-  - {x: 0.86695004, y: 20.639608}
-  - {x: 0.25193354, y: 22.021053}
-  - {x: 0.11227607, y: 22.873096}
-  - {x: 0.3345902, y: 23.88247}
-  - {x: 1.3121758, y: 25.7146}
-  - {x: 2.5359762, y: 27.903032}
-  - {x: 2.9220421, y: 29.228321}
-  - {x: 2.9443247, y: 34.938816}
-  - {x: 2.7919683, y: 39.14535}
-  - {x: 3.7999678, y: 39.26342}
+  - {x: 3.5550656, y: 5.58572}
+  - {x: 2.5605578, y: 5.6195335}
+  - {x: 2.582923, y: 7.156189}
+  - {x: 2.6734068, y: 9.615043}
+  - {x: 2.8207474, y: 12.811457}
+  - {x: 2.8869848, y: 15.304285}
+  - {x: 2.7560375, y: 16.6895}
+  - {x: 2.45854, y: 17.77662}
+  - {x: 2.0534382, y: 18.718357}
+  - {x: 1.3655487, y: 19.873846}
+  - {x: 0.5796566, y: 21.242037}
+  - {x: 0.2578013, y: 21.999876}
+  - {x: 0.1472013, y: 22.605434}
+  - {x: 0.17418814, y: 23.298422}
+  - {x: 0.45584512, y: 24.2252}
+  - {x: 0.9680543, y: 25.183237}
+  - {x: 1.5997015, y: 26.199703}
+  - {x: 2.097296, y: 27.040586}
+  - {x: 2.739553, y: 28.377344}
+  - {x: 2.9192593, y: 29.240501}
+  - {x: 2.9372325, y: 29.995115}
+  - {x: 2.9384124, y: 33.281265}
+  - {x: 2.919919, y: 35.79882}
+  - {x: 2.79249, y: 39.154953}
+  - {x: 3.7331314, y: 39.239227}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -3253,7 +3285,7 @@ GameObject:
   - component: {fileID: 1657540368}
   m_Layer: 0
   m_Name: Level Sprite Profile (8)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3313,7 +3345,7 @@ MonoBehaviour:
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
   m_ColliderOffset: 0
-  m_UpdateCollider: 1
+  m_UpdateCollider: 0
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
@@ -3407,21 +3439,22 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 5.7027335, y: 2.1681714}
-  - {x: 4.3295746, y: 2.516828}
-  - {x: 2.149137, y: 3.2985158}
-  - {x: 0.36865664, y: 3.775846}
-  - {x: -0.35927832, y: 3.841289}
-  - {x: -1.3760568, y: 3.636528}
-  - {x: -5.7362294, y: 2.1436472}
-  - {x: -5.705016, y: 1.1373343}
-  - {x: -1.8298824, y: 2.4411316}
-  - {x: -0.6474364, y: 2.7937555}
-  - {x: 0.14960217, y: 2.8747697}
-  - {x: 3.6955566, y: 1.6817436}
-  - {x: 5.170647, y: 1.2750144}
-  - {x: 5.7401705, y: 1.1722507}
-  - {x: 5.6921062, y: 2.1499672}
+  - {x: 5.737302, y: 1.1946054}
+  - {x: 5.7127104, y: 2.1553855}
+  - {x: 4.5649595, y: 2.4530005}
+  - {x: 1.29145, y: 3.5611806}
+  - {x: -0.062951565, y: 3.8409662}
+  - {x: -0.8922162, y: 3.7606697}
+  - {x: -2.309617, y: 3.3494983}
+  - {x: -4.740619, y: 2.4521258}
+  - {x: -5.7373114, y: 2.1633525}
+  - {x: -5.7182035, y: 1.1611223}
+  - {x: -4.3241324, y: 1.5384545}
+  - {x: -1.0637095, y: 2.7047398}
+  - {x: -0.1536107, y: 2.848721}
+  - {x: 0.82759285, y: 2.6671615}
+  - {x: 4.4636145, y: 1.421061}
+  - {x: 5.7010508, y: 1.1640731}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -3435,11 +3468,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 1.18
+      value: 15.66
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -2.54
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901488093343, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_RootOrder
@@ -3509,11 +3542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5520007210388680199, guid: c414f47e6aca0204bbfa5bfacca8aab1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.03
+      value: -22.52
       objectReference: {fileID: 0}
     - target: {fileID: 5520007210388680199, guid: c414f47e6aca0204bbfa5bfacca8aab1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.23
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 5520007210388680199, guid: c414f47e6aca0204bbfa5bfacca8aab1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3562,7 +3595,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 1.18
+      value: 1.1800003
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -3632,11 +3665,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 10.2
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901216310048, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 9.6
+      value: 9.69
       objectReference: {fileID: 0}
     - target: {fileID: 8241259901488093343, guid: 75b89fe590c379c4484edade3c1e3ff6, type: 3}
       propertyPath: m_RootOrder
