@@ -16,12 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int addedJumpAccelerationPerFixedUpdate = 35;
     [SerializeField] private int minJumpAcceleration = 8;
     [SerializeField] private float maxJumpChargeTime = .2f;
-    [Space]
+	[Space]
     [SerializeField] private float maxHorizontalVelocity = 10;
     [SerializeField] private float frictionCoefficient = 30f;
     [Space]
     [SerializeField, Range(0f, 5f)] private float airSteeringModifier = .2f;
     [Space]
+	[SerializeField] private float dashForce = 1000f;
+	[SerializeField] private float dashRechargeTime = 2f;
+	[Space]
     [SerializeField] private Vector2 extraGravity = new Vector2(0f, 0f);
     [Space]
 
@@ -35,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded = false;
     private bool _isMoving = false;
 	private bool _isAttached = false;
+
+	private bool _canDash = true;
 
     private void Awake()
     {
@@ -181,6 +186,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+	public void Dash()
+	{
+		if (!_canDash)
+			return;
+		Vector2 currentDirection = rb.velocity.normalized;
+		if (currentDirection == Vector2.zero)
+			return;
+		rb.AddForce(currentDirection * dashForce, ForceMode2D.Impulse);
+		_canDash = false;
+		StartCoroutine(RechargeDash());
+
+	}
+
 	public bool GetIsAttached()
 	{
 		return _isAttached;
@@ -189,6 +207,12 @@ public class PlayerController : MonoBehaviour
 	public void SetIsAttached(bool value)
 	{
 		_isAttached = value;
+	}
+
+	private IEnumerator RechargeDash()
+	{
+		yield return new WaitForSeconds(dashRechargeTime);
+		_canDash = true;
 	}
 	
 	// private float Remap(float inMin, float inMax, float outMin, float outMax, float v)

@@ -30,6 +30,7 @@ namespace HelperClasses.New_Input_System
                     _controls.Player1.Jump.performed += ctx => _playerController.Jump();
                     _controls.Player1.Shoot.performed += ctx => _playerController.Shoot();
                     _controls.Player1.Jump.canceled += ctx => _playerController.JumpChargeCanceled();
+					_controls.Player1.Dash.performed += ctx => _playerController.Dash();
 
                     //_controls.Player1.Shoot.started += ctx => _playerController.Shoot();
                     //_controls.Player1.Shoot.canceled += ctx => _playerController.DoneShooting();
@@ -40,6 +41,7 @@ namespace HelperClasses.New_Input_System
                     _controls.Player2.Jump.performed += ctx => _playerController.Jump();
                     _controls.Player2.Shoot.performed += ctx => _playerController.Shoot();
                     _controls.Player2.Jump.canceled += ctx => _playerController.JumpChargeCanceled();
+					_controls.Player2.Dash.performed += ctx => _playerController.Dash();
           
                     //_controls.Player2.Shoot.started += ctx => _playerController.Shoot();
                     //_controls.Player2.Shoot.canceled += ctx => _playerController.DoneShooting();

@@ -41,6 +41,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""5de28fd0-0ada-43de-bc6a-13a182bd6f64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -120,6 +128,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c6e767d-f854-4793-9793-338bc6ea0f92"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -147,6 +166,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""dda3a91d-18bb-4eae-adf4-7ec264bbd536"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""c2d86a2f-6ae2-4669-8e99-0f646a458927"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -229,6 +256,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0215acc3-36b0-4287-9805-6846454b43e7"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,11 +278,13 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
         m_Player1_Movement = m_Player1.FindAction("Movement", throwIfNotFound: true);
         m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
+        m_Player1_Dash = m_Player1.FindAction("Dash", throwIfNotFound: true);
         // Player 2
         m_Player2 = asset.FindActionMap("Player 2", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
         m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
         m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
+        m_Player2_Dash = m_Player2.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -297,6 +337,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Jump;
     private readonly InputAction m_Player1_Movement;
     private readonly InputAction m_Player1_Shoot;
+    private readonly InputAction m_Player1_Dash;
     public struct Player1Actions
     {
         private @InputMaster m_Wrapper;
@@ -304,6 +345,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
         public InputAction @Movement => m_Wrapper.m_Player1_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
+        public InputAction @Dash => m_Wrapper.m_Player1_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -322,6 +364,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Shoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Dash.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -335,6 +380,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -346,6 +394,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Jump;
     private readonly InputAction m_Player2_Movement;
     private readonly InputAction m_Player2_Shoot;
+    private readonly InputAction m_Player2_Dash;
     public struct Player2Actions
     {
         private @InputMaster m_Wrapper;
@@ -353,6 +402,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player2_Jump;
         public InputAction @Movement => m_Wrapper.m_Player2_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
+        public InputAction @Dash => m_Wrapper.m_Player2_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -371,6 +421,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Shoot.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Dash.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -384,6 +437,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -393,11 +449,13 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
