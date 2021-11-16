@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using HelperClasses.Event_System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonkeyBar : MonoBehaviour
@@ -10,9 +7,6 @@ public class MonkeyBar : MonoBehaviour
 	public bool AutoRelease;
 	public float ReleaseAngle = 45f;
 	public float DistanceFromMonkeyBar = 1f;
-	
-
-	[Range(1, 10)]public int MaxThingsOnMonkeyBar = 1;
 
 	private Transform attachedPlayer;
 	private Rigidbody2D attachedRigidbody;
@@ -175,13 +169,15 @@ public class MonkeyBar : MonoBehaviour
 	
 	public void ReleaseFromMonkeyBar(EventInfo eventInfo = default(EventInfo))
 	{
+		
 		// We calling Release from Player If this is True 
 		OnPlayerMonkeyBarRelease OnReleaseEvent = (OnPlayerMonkeyBarRelease)eventInfo;
 		if (OnReleaseEvent!=null)
 		{
+			Debug.Log("returned");
 			if (attachedPlayer == null || OnReleaseEvent.GO != attachedPlayer.gameObject) return;
 		}
-		
+		Debug.Log("attempted release");
 		hingeJoint.connectedBody = null;
 		attachedPlayer.up = Vector3.up;
 		attachedRigidbody.angularVelocity = 0f;

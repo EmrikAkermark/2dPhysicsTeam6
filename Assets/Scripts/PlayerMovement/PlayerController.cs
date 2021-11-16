@@ -113,12 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0f, addedJumpAccelerationPerFixedUpdate * mass), ForceMode2D.Force);
             
-           // Will Fire 2 Events , Release from Monkey In Case The player was attached . 
-           // And a event of Jumping To whomever wanna listen to that later in the game .
-           var monkeyReleaseEvent = new OnPlayerMonkeyBarRelease(gameObject,"Player");
-           EventManager.SendNewEvent(monkeyReleaseEvent);
-           var playerJumpEvent = new OnPlayerJumpEvent(gameObject,"Player");
-           EventManager.SendNewEvent(playerJumpEvent);
+
         }
     }
 
@@ -207,7 +202,14 @@ public class PlayerController : MonoBehaviour
             _jump = true;
             StartCoroutine(JumpCharge());
         }
-    }
+
+		// Will Fire 2 Events , Release from Monkey In Case The player was attached . 
+		// And a event of Jumping To whomever wanna listen to that later in the game .
+		var monkeyReleaseEvent = new OnPlayerMonkeyBarRelease(gameObject, "Player");
+		EventManager.SendNewEvent(monkeyReleaseEvent);
+		var playerJumpEvent = new OnPlayerJumpEvent(gameObject, "Player");
+		EventManager.SendNewEvent(playerJumpEvent);
+	}
     
     public void JumpChargeCanceled()
     {
