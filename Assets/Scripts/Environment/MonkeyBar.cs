@@ -105,15 +105,15 @@ public class MonkeyBar : MonoBehaviour
 			return;
 
 
-		CheckRotationDirection();
-		if(isReadyToRelease)
-		{
-			CheckIfRelease();
-		}
-		else
-		{
-			CheckIfReady();
-		}
+		//CheckRotationDirection();
+		//if(isReadyToRelease)
+		//{
+		//	CheckIfRelease();
+		//}
+		//else
+		//{
+		//	CheckIfReady();
+		//}
 
 	}
 
