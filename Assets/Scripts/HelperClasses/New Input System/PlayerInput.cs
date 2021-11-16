@@ -33,12 +33,14 @@ namespace HelperClasses.New_Input_System
 					_controls.Player1.Dash.performed += ctx => _playerController.Dash();
                     _controls.Player1.MassChange.performed += ctx => _playerController.MassChangeInput(true);
                     _controls.Player1.MassChange.canceled += ctx => _playerController.MassChangeInput(false);
+					_controls.Player1.TinyWings.performed += ctx => _playerController.TinyWingsActive(true);
+					_controls.Player1.TinyWings.canceled += ctx => _playerController.TinyWingsActive(false);
 
-                    //_controls.Player1.Shoot.started += ctx => _playerController.Shoot();
-                    //_controls.Player1.Shoot.canceled += ctx => _playerController.DoneShooting();
+					//_controls.Player1.Shoot.started += ctx => _playerController.Shoot();
+					//_controls.Player1.Shoot.canceled += ctx => _playerController.DoneShooting();
 
 
-                    break;
+					break;
                 case PlayerSelection.Player2:
                     _controls.Player2.Jump.performed += ctx => _playerController.Jump();
                     _controls.Player2.Shoot.performed += ctx => _playerController.Shoot();
@@ -46,11 +48,13 @@ namespace HelperClasses.New_Input_System
 					_controls.Player2.Dash.performed += ctx => _playerController.Dash();
                     _controls.Player2.MassChange.performed += ctx => _playerController.MassChangeInput(true);
                     _controls.Player2.MassChange.canceled += ctx => _playerController.MassChangeInput(false);
-          
-                    //_controls.Player2.Shoot.started += ctx => _playerController.Shoot();
-                    //_controls.Player2.Shoot.canceled += ctx => _playerController.DoneShooting();
+					_controls.Player2.TinyWings.performed += ctx => _playerController.TinyWingsActive(true);
+					_controls.Player2.TinyWings.canceled += ctx => _playerController.TinyWingsActive(false);
 
-                    break;
+					//_controls.Player2.Shoot.started += ctx => _playerController.Shoot();
+					//_controls.Player2.Shoot.canceled += ctx => _playerController.DoneShooting();
+
+					break;
             }
         }
         private void OnDisable()

@@ -57,6 +57,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TinyWings"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c5d5e66-6ea9-4c50-a01a-328fd215631c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -158,6 +166,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Mass Change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83554196-28fe-4ba2-b009-6d545bcf9a31"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TinyWings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -201,6 +220,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": ""Mass Change"",
                     ""type"": ""Button"",
                     ""id"": ""bb470dfa-d212-4936-97b1-b46d9e6ab9b2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TinyWings"",
+                    ""type"": ""Button"",
+                    ""id"": ""22ae3042-2256-4cbf-9457-dadcc40a98fb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -305,6 +332,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Mass Change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f1f6f1b-7823-4493-bde3-c9aa1dc0254a"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TinyWings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -318,6 +356,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
         m_Player1_Dash = m_Player1.FindAction("Dash", throwIfNotFound: true);
         m_Player1_MassChange = m_Player1.FindAction("Mass Change", throwIfNotFound: true);
+        m_Player1_TinyWings = m_Player1.FindAction("TinyWings", throwIfNotFound: true);
         // Player 2
         m_Player2 = asset.FindActionMap("Player 2", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
@@ -325,6 +364,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
         m_Player2_Dash = m_Player2.FindAction("Dash", throwIfNotFound: true);
         m_Player2_MassChange = m_Player2.FindAction("Mass Change", throwIfNotFound: true);
+        m_Player2_TinyWings = m_Player2.FindAction("TinyWings", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -379,6 +419,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Shoot;
     private readonly InputAction m_Player1_Dash;
     private readonly InputAction m_Player1_MassChange;
+    private readonly InputAction m_Player1_TinyWings;
     public struct Player1Actions
     {
         private @InputMaster m_Wrapper;
@@ -388,6 +429,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputAction @Dash => m_Wrapper.m_Player1_Dash;
         public InputAction @MassChange => m_Wrapper.m_Player1_MassChange;
+        public InputAction @TinyWings => m_Wrapper.m_Player1_TinyWings;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -412,6 +454,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @MassChange.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMassChange;
                 @MassChange.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMassChange;
                 @MassChange.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMassChange;
+                @TinyWings.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTinyWings;
+                @TinyWings.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTinyWings;
+                @TinyWings.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTinyWings;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -431,6 +476,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @MassChange.started += instance.OnMassChange;
                 @MassChange.performed += instance.OnMassChange;
                 @MassChange.canceled += instance.OnMassChange;
+                @TinyWings.started += instance.OnTinyWings;
+                @TinyWings.performed += instance.OnTinyWings;
+                @TinyWings.canceled += instance.OnTinyWings;
             }
         }
     }
@@ -444,6 +492,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Shoot;
     private readonly InputAction m_Player2_Dash;
     private readonly InputAction m_Player2_MassChange;
+    private readonly InputAction m_Player2_TinyWings;
     public struct Player2Actions
     {
         private @InputMaster m_Wrapper;
@@ -453,6 +502,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputAction @Dash => m_Wrapper.m_Player2_Dash;
         public InputAction @MassChange => m_Wrapper.m_Player2_MassChange;
+        public InputAction @TinyWings => m_Wrapper.m_Player2_TinyWings;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -477,6 +527,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @MassChange.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMassChange;
                 @MassChange.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMassChange;
                 @MassChange.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMassChange;
+                @TinyWings.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnTinyWings;
+                @TinyWings.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnTinyWings;
+                @TinyWings.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnTinyWings;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -496,6 +549,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @MassChange.started += instance.OnMassChange;
                 @MassChange.performed += instance.OnMassChange;
                 @MassChange.canceled += instance.OnMassChange;
+                @TinyWings.started += instance.OnTinyWings;
+                @TinyWings.performed += instance.OnTinyWings;
+                @TinyWings.canceled += instance.OnTinyWings;
             }
         }
     }
@@ -507,6 +563,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnMassChange(InputAction.CallbackContext context);
+        void OnTinyWings(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -515,5 +572,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnMassChange(InputAction.CallbackContext context);
+        void OnTinyWings(InputAction.CallbackContext context);
     }
 }

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maximumMass = 150f;
     [SerializeField, Range(0.1f, 2f)] private float massChangeTime = 1f;
     [SerializeField] private Vector2 extraGravity = new Vector2(0f, 0f);
+	[SerializeField] private float TinyWingsDownStrength = 10f;
     [Space]
 
     private GameObject _projectileArrow;
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour
     private bool _hasChangedMass = false;
     private float _targetMass;
     private float _massChangeTimer = 0f;
+
+	private bool _tinyWings = false;
 
     private void Awake()
     {
@@ -91,8 +94,12 @@ public class PlayerController : MonoBehaviour
         }
 
         force += extraGravity * rb.mass; // mul by mass to get correct force to apply, because gravity is an acceleration.
-        
-        Vector2 right = transform.right;
+
+		if (_tinyWings)
+		{
+			force += Vector2.down * rb.mass * TinyWingsDownStrength;
+		}
+		Vector2 right = transform.right;
         Vector2 horizontalVelocity = Vector2.Dot(rb.velocity, right) * right;
         
         float facingInputDir = Vector2.Dot(new Vector2(_inputHorizontal, 0f), rb.velocity);
@@ -112,9 +119,10 @@ public class PlayerController : MonoBehaviour
         if (_jump)
         {
             rb.AddForce(new Vector2(0f, addedJumpAccelerationPerFixedUpdate * mass), ForceMode2D.Force);
-            
-
         }
+
+		
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -158,6 +166,18 @@ public class PlayerController : MonoBehaviour
             _targetMass = defaultMass;
         }
     }
+
+	public void TinyWingsActive(bool condition)
+	{
+		if(condition)
+		{
+			_tinyWings = true;
+		}
+		else
+		{
+			_tinyWings = false;
+		}
+	}
 
     private void ChangeMass()
     {

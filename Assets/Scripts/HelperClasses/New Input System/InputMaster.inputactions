@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "TinyWings",
+                    "type": "Button",
+                    "id": "6c5d5e66-6ea9-4c50-a01a-328fd215631c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -145,6 +153,17 @@
                     "action": "Mass Change",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83554196-28fe-4ba2-b009-6d545bcf9a31",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TinyWings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -188,6 +207,14 @@
                     "name": "Mass Change",
                     "type": "Button",
                     "id": "bb470dfa-d212-4936-97b1-b46d9e6ab9b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TinyWings",
+                    "type": "Button",
+                    "id": "22ae3042-2256-4cbf-9457-dadcc40a98fb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -290,6 +317,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mass Change",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f1f6f1b-7823-4493-bde3-c9aa1dc0254a",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TinyWings",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
