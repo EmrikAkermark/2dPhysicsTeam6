@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     // public Vector2 velocity;
     
     [SerializeField] private int movementAcceleration = 20;
+    [SerializeField] private bool useOnlyDefaultMass = true;
     [SerializeField] private int addedJumpAccelerationPerFixedUpdate = 35;
     [SerializeField] private int minJumpAcceleration = 8;
     [SerializeField] private float maxJumpChargeTime = .2f;
@@ -24,7 +25,10 @@ public class PlayerController : MonoBehaviour
     [Space]
 	[SerializeField] private float dashForce = 1000f;
 	[SerializeField] private float dashRechargeTime = 2f;
-	[Space]
+    [Space]
+    [SerializeField] private float defaultMass = 80f;
+    [SerializeField] private float maximumMass = 150f;
+    [SerializeField, Range(0.1f, 2f)] private float massChangeTime = 1f;
     [SerializeField] private Vector2 extraGravity = new Vector2(0f, 0f);
     [Space]
 
@@ -41,26 +45,38 @@ public class PlayerController : MonoBehaviour
 
 	private bool _canDash = true;
 
+    private bool _hasChangedMass = false;
+    private float _targetMass;
+    private float _massChangeTimer = 0f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         _projectileArrow = transform.Find("ProjectileArrow").gameObject;
+        _targetMass = defaultMass;
     }
 
 
     void Update()
     {
         _isMoving = _inputHorizontal != 0;
+
+        if (rb.mass != _targetMass)
+        {
+            ChangeMass();
+        }
     }
 
     private void FixedUpdate()
     {
         Vector2 force = Vector2.zero;
 
+        float mass = useOnlyDefaultMass ? defaultMass : rb.mass;
+        
         if (_isGrounded)
         {
             // calculate horizontal force to apply based on acceleration and input values.
-            force.x = ((movementAcceleration * rb.mass) * _inputHorizontal);
+            force.x = ((movementAcceleration * mass) * _inputHorizontal);
 
             // adjusting applied horizontal force to match max allowed horizontal velocity.
             force.x *= ILerp(maxHorizontalVelocity, 0, rb.velocity.x) + .4f;
@@ -68,7 +84,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             // calculate horizontal force to apply based on acceleration and input values.
-            force.x = ((movementAcceleration * rb.mass) * _inputHorizontal) * airSteeringModifier;
+            force.x = ((movementAcceleration * mass) * _inputHorizontal) * airSteeringModifier;
             
             // adjusting applied horizontal force to match max allowed horizontal velocity.
             force.x *= ILerp(maxHorizontalVelocity, 0, rb.velocity.x) + .4f;
@@ -95,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
         if (_jump)
         {
-            rb.AddForce(new Vector2(0f, addedJumpAccelerationPerFixedUpdate * rb.mass), ForceMode2D.Force);
+            rb.AddForce(new Vector2(0f, addedJumpAccelerationPerFixedUpdate * mass), ForceMode2D.Force);
             
            // Will Fire 2 Events , Release from Monkey In Case The player was attached . 
            // And a event of Jumping To whomever wanna listen to that later in the game .
@@ -132,6 +148,56 @@ public class PlayerController : MonoBehaviour
     {
         _inputHorizontal = movInput.x;
         _inputVertical = movInput.y;
+    }
+
+    public void MassChangeInput(bool shouldStart)
+    {
+        if (shouldStart)
+        {
+            _hasChangedMass = true;
+            _targetMass = maximumMass;
+        }
+        else
+        {
+            _hasChangedMass = false;
+            _targetMass = defaultMass;
+        }
+    }
+
+    private void ChangeMass()
+    {
+        if (_hasChangedMass)
+        {
+            _massChangeTimer += Time.deltaTime;
+
+            float newMass = Remap(0f, massChangeTime, defaultMass, maximumMass, _massChangeTimer);
+                
+            if (newMass > _targetMass)
+            {
+                newMass = _targetMass;
+                _massChangeTimer = massChangeTime;
+                rb.mass = newMass;
+                return;
+            }
+                
+            rb.mass = newMass;
+        }
+        else
+        {
+            _massChangeTimer -= Time.deltaTime;
+                
+            float newMass = Remap(0f, massChangeTime, defaultMass, maximumMass, _massChangeTimer);
+                
+            if (newMass < _targetMass)
+            {
+                newMass = _targetMass;
+                _massChangeTimer = 0f;
+                rb.mass = newMass;
+                return;
+            }
+                
+            rb.mass = newMass;
+        }
     }
 
     public void Jump()
@@ -215,8 +281,8 @@ public class PlayerController : MonoBehaviour
 		_canDash = true;
 	}
 	
-	// private float Remap(float inMin, float inMax, float outMin, float outMax, float v)
-    // {
-    //     return outMin + ((v - inMin) * (outMax - outMin)) / (inMax - inMin);
-    // }
+	private float Remap(float inMin, float inMax, float outMin, float outMax, float v)
+    {
+        return outMin + ((v - inMin) * (outMax - outMin)) / (inMax - inMin);
+    }
 }
