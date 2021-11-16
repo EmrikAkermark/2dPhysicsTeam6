@@ -7,8 +7,10 @@ using UnityEngine;
 
 public class MonkeyBar : MonoBehaviour
 {
+	public bool AutoRelease;
 	public float ReleaseAngle = 45f;
 	public float DistanceFromMonkeyBar = 1f;
+	
 
 	[Range(1, 10)]public int MaxThingsOnMonkeyBar = 1;
 
@@ -101,19 +103,19 @@ public class MonkeyBar : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (!hasAttached)
+		if (!hasAttached || !AutoRelease)
 			return;
 
 
-		//CheckRotationDirection();
-		//if(isReadyToRelease)
-		//{
-		//	CheckIfRelease();
-		//}
-		//else
-		//{
-		//	CheckIfReady();
-		//}
+		CheckRotationDirection();
+		if (isReadyToRelease)
+		{
+			CheckIfRelease();
+		}
+		else
+		{
+			CheckIfReady();
+		}
 
 	}
 
