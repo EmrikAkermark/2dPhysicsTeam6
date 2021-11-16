@@ -49,6 +49,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Mass Change"",
+                    ""type"": ""Button"",
+                    ""id"": ""07d2e8dc-9885-46b4-92e5-fbd8d2a7531b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53563562-2de8-4be6-8e5e-730b3ade54d7"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mass Change"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -174,6 +193,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""c2d86a2f-6ae2-4669-8e99-0f646a458927"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Mass Change"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb470dfa-d212-4936-97b1-b46d9e6ab9b2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -267,6 +294,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a812251d-1e6e-47e7-bb3f-e59ce8eb66a2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mass Change"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -279,12 +317,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player1_Movement = m_Player1.FindAction("Movement", throwIfNotFound: true);
         m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
         m_Player1_Dash = m_Player1.FindAction("Dash", throwIfNotFound: true);
+        m_Player1_MassChange = m_Player1.FindAction("Mass Change", throwIfNotFound: true);
         // Player 2
         m_Player2 = asset.FindActionMap("Player 2", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
         m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
         m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
         m_Player2_Dash = m_Player2.FindAction("Dash", throwIfNotFound: true);
+        m_Player2_MassChange = m_Player2.FindAction("Mass Change", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -338,6 +378,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Movement;
     private readonly InputAction m_Player1_Shoot;
     private readonly InputAction m_Player1_Dash;
+    private readonly InputAction m_Player1_MassChange;
     public struct Player1Actions
     {
         private @InputMaster m_Wrapper;
@@ -346,6 +387,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player1_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputAction @Dash => m_Wrapper.m_Player1_Dash;
+        public InputAction @MassChange => m_Wrapper.m_Player1_MassChange;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -367,6 +409,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDash;
+                @MassChange.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMassChange;
+                @MassChange.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMassChange;
+                @MassChange.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMassChange;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -383,6 +428,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @MassChange.started += instance.OnMassChange;
+                @MassChange.performed += instance.OnMassChange;
+                @MassChange.canceled += instance.OnMassChange;
             }
         }
     }
@@ -395,6 +443,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Movement;
     private readonly InputAction m_Player2_Shoot;
     private readonly InputAction m_Player2_Dash;
+    private readonly InputAction m_Player2_MassChange;
     public struct Player2Actions
     {
         private @InputMaster m_Wrapper;
@@ -403,6 +452,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player2_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputAction @Dash => m_Wrapper.m_Player2_Dash;
+        public InputAction @MassChange => m_Wrapper.m_Player2_MassChange;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -424,6 +474,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDash;
+                @MassChange.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMassChange;
+                @MassChange.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMassChange;
+                @MassChange.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMassChange;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -440,6 +493,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @MassChange.started += instance.OnMassChange;
+                @MassChange.performed += instance.OnMassChange;
+                @MassChange.canceled += instance.OnMassChange;
             }
         }
     }
@@ -450,6 +506,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnMassChange(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -457,5 +514,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnMassChange(InputAction.CallbackContext context);
     }
 }
