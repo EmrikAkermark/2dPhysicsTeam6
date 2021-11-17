@@ -174,10 +174,10 @@ public class MonkeyBar : MonoBehaviour
 		OnPlayerMonkeyBarRelease OnReleaseEvent = (OnPlayerMonkeyBarRelease)eventInfo;
 		if (OnReleaseEvent!=null)
 		{
-			Debug.Log("returned");
+			
 			if (attachedPlayer == null || OnReleaseEvent.GO != attachedPlayer.gameObject) return;
 		}
-		Debug.Log("attempted release");
+
 		hingeJoint.connectedBody = null;
 		attachedPlayer.up = Vector3.up;
 		attachedRigidbody.angularVelocity = 0f;
