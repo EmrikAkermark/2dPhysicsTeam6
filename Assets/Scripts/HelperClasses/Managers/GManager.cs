@@ -76,10 +76,12 @@ namespace HelperClasses.Managers
 			if(player == _player1)
 			{
 				player.transform.position = _p1Respawn.position;
+				player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			}
 			else if(player == _player2)
 			{
 				player.transform.position = _p2Respawn.position;
+				player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			}
 		}
 

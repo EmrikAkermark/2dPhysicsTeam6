@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Killbox : MonoBehaviour
 {
-	private HelperClasses.Managers.GManager gManager;
-
 	private GameObject p1, p2;
 
     // Start is called before the first frame update
