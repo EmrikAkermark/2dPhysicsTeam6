@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxJumpChargeTime = .2f;
 	[Space]
     [SerializeField] private float maxHorizontalVelocity = 10;
-    [SerializeField] private float frictionCoefficient = 30f;
+    [SerializeField] private float groundFrictionCoefficient = 30f;
+    [SerializeField] private float airFrictionCoefficient = 10f;
     [Space]
     [SerializeField, Range(0f, 5f)] private float airSteeringModifier = .2f;
     [Space]
@@ -105,6 +106,7 @@ public class PlayerController : MonoBehaviour
         float facingInputDir = Vector2.Dot(new Vector2(_inputHorizontal, 0f), rb.velocity);
 
         Vector2 horizontalFriction;
+        float frictionCoefficient = _isGrounded ? groundFrictionCoefficient : airFrictionCoefficient;
         if (facingInputDir > 0f)
         {
             horizontalFriction = -horizontalVelocity * frictionCoefficient;
